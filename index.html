@@ -78,6 +78,7 @@
       });
 
     function renderSongs(songs) {
+      songs.sort((a, b) => a.title.localeCompare(b.title));
       const list = document.getElementById('song-list');
       list.innerHTML = '';
       songs.forEach(song => {
