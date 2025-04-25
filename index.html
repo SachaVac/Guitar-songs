@@ -1,55 +1,59 @@
-<!DOCTYPE html> <!--projekt typu dokument-->
-<html lang="cs"> <!--stranka v cestine-->
-    <head>
-        <meta charset="UTF-8"> <!--pridani ceskych znaku-->
-        <title>K taboraku a tak</title>
-        <style>
-            body {
-                font-family: 'Times New Roman', Times, serif;
-                max-width: 600px;
-                margin: 2rem auto;
-                padding: 1rem;
-            }
-            input {
-                width: 100%;
-                padding: 0.5rem;
-                margin-bottom: 1rem;
-                font-size: 1rem;
-            }
-            li {
-                margin-bottom: 0.5rem;
-            }
-        </style>
-    </head>
-    <body>
-        <h1> Guitar chords</h1>
-        <input type="text" id="search" placeholder="Find song...">
-        <u1 id="song_list"></u1>
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Seznam písní</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎸 Seznam písniček</h1>
+  <input type="text" id="search" placeholder="Hledej písničku...">
 
-        <script>
-            let songList = [];
+  <ul id="song-list"></ul>
 
-            fetch('songs/songs.json')
-            .then(res => res.json() )
-            .then(data => {songList = data;
-                renderSongs(songList);
-            });
+  <script>
+    let songsData = [];
 
-            function renderSongs(songs) {
-                const list = document.getElementById('song_list');
-                list.innerHTML = '';
-                songs.forEach(songs => {
-                    const li = document.createElement('li');
-                    li.innerHTML = '<a href="songs/${song.file}">${song.title}</a>';
-                    list.appendChild(li);
-                });
-            }
+    fetch('songs/songs.json')
+      .then(res => res.json())
+      .then(data => {
+        songsData = data;
+        renderSongs(songsData);
+      });
 
-            document.getElementById('search').addEventListener('input', function () {
-                const query = this.value.toLowerCase();
-                const filtered = songList.filter(songs => song.title.toLowerCase().includes(query));
-                renderSongs(filtered);
-            });
-        </script>
-    </body>
+    function renderSongs(songs) {
+      const list = document.getElementById('song-list');
+      list.innerHTML = '';
+      songs.forEach(song => {
+        const li = document.createElement('li');
+        li.innerHTML = `<a href="songs/${song.file}">${song.title}</a>`;
+        list.appendChild(li);
+      });
+    }
+
+    document.getElementById('search').addEventListener('input', function () {
+      const query = this.value.toLowerCase();
+      const filtered = songsData.filter(song =>
+        song.title.toLowerCase().includes(query)
+      );
+      renderSongs(filtered);
+    });
+  </script>
+</body>
 </html>
