@@ -4,17 +4,28 @@
   <meta charset="UTF-8">
   <title>SONGS4EVERYONE</title>
   <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  
     body {
-      font-family: sans-serif;
-      max-width: 600px;
-      margin: 2rem auto;
-      padding: 1rem;
       background-image: url('figs/introm.jpeg');
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center center;
-      min-height: 100vh;
     }
+  
+    .container {
+      font-family: sans-serif;
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.8); /* poloprůhledné pozadí pod obsahem */
+      border-radius: 16px;
+    }
+  
     input {
       width: 100%;
       padding: 0.5rem;
@@ -24,48 +35,48 @@
       border-radius: 16px;
       border: 1px solid #ccc;
     }
+  
     li {
       margin-bottom: 0.5rem;
     }
+  
     h1 {
-        font-size: 50px;
-        text-align: center;
-        font-family: cursive;
+      font-size: 50px;
+      text-align: center;
+      font-family: cursive;
     }
-    /*href base*/
+  
     a {
-    text-decoration: none; 
-    color: #050505;       
-    font-size: 25px;
+      text-decoration: none; 
+      color: #050505;       
+      font-size: 25px;
     }
-
-    /*nonvisited*/
+  
     a:link {
-        color: #050505;     
+      color: #050505;     
     }
-
-    /*visited*/
+  
     a:visited {
-        color: #ffe601; 
+      color: #ffe601; 
     }
-
-    /*moving mouse*/
+  
     a:hover {
-        color: #c5b416;        
-        text-decoration: underline; 
+      color: #c5b416;        
+      text-decoration: underline; 
     }
-
-    /*after clicking*/
+  
     a:active {
-        color: #e0630f; 
+      color: #e0630f; 
     }
   </style>
-</head>
-<body>
-  <h1>SONGS4EVERYONE</h1>
-  <input type="text" id="search" placeholder="Find your song...">
-
-  <ul id="song-list"></ul>
+  </head>
+  <body>
+  
+  <div class="container">
+    <h1>SONGS4EVERYONE</h1>
+    <input type="text" id="search" placeholder="Find your song...">
+    <ul id="song-list"></ul>
+  </div>
 
   <script>
     let songsData = [];
