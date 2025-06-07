@@ -1,0 +1,45 @@
+body {
+  font-family: sans-serif;
+  color: #e7e2e2;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-image: url('../figs/l1b.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 100vh;
+}
+
+pre {
+  font-family: inherit;
+  color: #e7e2e2;
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+h1 {
+  font-size: 50px;
+  text-align: center;
+  font-family: cursive;
+  color: #ffe601;
+}
+
+a {
+  text-decoration: none;
+  color: #e7e2e2;
+}
+
+a:link,
+a:visited {
+  color: #e7e2e2;
+}
+
+a:hover {
+  color: #c5b416;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #e0630f;
+}
