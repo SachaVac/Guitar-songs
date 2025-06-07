@@ -7,78 +7,7 @@
   <meta name="keywords" content="songs4everyone, české písničky, sdílení hudby, texty písní, folk, country, trampské písničky, kytara, táborák">
   <meta name="robots" content="index, follow">
   
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
-  
-    body {
-      font-family: sans-serif;
-      max-width: 600px;
-      margin: 2rem auto;
-      padding: 1rem;
-      background-image: url('figs/introm.jpeg');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-attachment: fixed;
-      min-height: 100vh;
-    }
-  
-    .container {
-      font-family: sans-serif;
-      max-width: 600px;
-      margin: 2rem auto;
-      padding: 1rem;
-      background: rgba(255, 255, 255, 0.8); /* poloprůhledné pozadí pod obsahem */
-      border-radius: 16px;
-    }
-  
-    input {
-      width: 100%;
-      padding: 0.5rem;
-      margin-bottom: 1rem;
-      font-size: 1rem;
-      box-sizing: border-box;
-      border-radius: 16px;
-      border: 1px solid #ccc;
-    }
-  
-    li {
-      margin-bottom: 0.5rem;
-    }
-  
-    h1 {
-      font-size: 50px;
-      text-align: center;
-      font-family: cursive;
-    }
-  
-    a {
-      text-decoration: none; 
-      color: #050505;       
-      font-size: 25px;
-    }
-  
-    a:link {
-      color: #050505;     
-    }
-  
-    a:visited {
-      color: #ffe601; 
-    }
-  
-    a:hover {
-      color: #c5b416;        
-      text-decoration: underline; 
-    }
-  
-    a:active {
-      color: #e0630f; 
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
   </head>
   <body>
   
@@ -104,7 +33,7 @@
       list.innerHTML = '';
       songs.forEach(song => {
         const li = document.createElement('li');
-        li.innerHTML = `<a href="songs/${song.file}">${song.title}</a>`;
+        li.innerHTML = `<a href="songs/song_template.html?song=${song.file}">${song.title}</a>`;
         list.appendChild(li);
       });
     }
