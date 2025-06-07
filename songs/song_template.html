@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>SONGS4EVERYONE</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <h2><a href="../figs/chords.jpeg">CHORDS</a></h2>
+  <h1 id="song-title">Název písně</h1>
+  <pre id="lyrics">Načítání textu…</pre>
+  <h2><a href="../index.html">ZPĚT</a></h2>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const songFile = params.get("song");
+
+    const lyricsEl = document.getElementById("lyrics");
+    const titleEl = document.getElementById("song-title");
+
+    if (!songFile) {
+      lyricsEl.textContent = "Nebyl zadán žádný soubor.";
+    } else {
+      fetch(`lyrics/${songFile}`)
+        .then(response => response.text())
+        .then(text => {
+          lyricsEl.textContent = text;
+
+          const songName = songFile
+            .replace(/_/g, " ")
+            .replace(/\.txt$/, "");
+
+          titleEl.textContent =
+            songName.charAt(0).toUpperCase() + songName.slice(1);
+        })
+        .catch(() => {
+          lyricsEl.textContent = "Nepodařilo se načíst text.";
+        });
+    }
+  </script>
+
+</body>
+</html>
