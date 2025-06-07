@@ -14,15 +14,33 @@ body {
 pre {
   font-family: inherit;
   color: #e7e2e2;
-  white-space: pre-wrap;
   margin: 0;
+  font-size: 22px;  
+  line-height: 0.65;
+
 }
 
-h1 {
+h1{
   font-size: 50px;
   text-align: center;
   font-family: cursive;
   color: #ffe601;
+}
+
+#chords {
+
+  color: #ff0101;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+#chords_header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  color: #ffe601;
+  margin-bottom: 1rem;
 }
 
 a {
